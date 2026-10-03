@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-wgz+elu&=&m5ad7#r%3x8vqey*kq%sa#7rw6-^+*rt9y(7g&#t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -46,7 +46,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -151,3 +153,5 @@ DJOSER = {
     'LOGIN_FIELD': 'national_id', # أو 'username' حسب حقل تسجيل الدخول عندك
     'USER_CREATE_PASSWORD_RETYPE': True,
 }
+# السماح لجميع النطاقات بالوصول للـ API (يمكنك تخصيصها لاحقاً برابط الفرونت إند الخاص بك)
+CORS_ALLOW_ALL_ORIGINS = True

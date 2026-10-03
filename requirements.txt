@@ -6,3 +6,4 @@ django-cors-headers
 whitenoise
 pymysql
 djoser
+python-dateutil
